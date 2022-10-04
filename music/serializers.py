@@ -5,5 +5,4 @@ from .models import Music
 class MusicSerializer(serializers.ModelSerializer):
     class Meta:
         model = Music
-        fields = ['id', 'title', 'artist', 'album','genre' ]
-        # Add release_date when fixed
+        fields = ['id', 'title', 'artist', 'album','release_date', 'genre', 'likes' ]
