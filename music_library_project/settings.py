@@ -24,6 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+CORS_ORIGIN_ALLOW_ALL=True
+
 ALLOWED_HOSTS = []
 
 
@@ -124,5 +126,3 @@ try :
     from music_library_project.local_settings import *
 except ImportError:
     pass
-
-CORS_ORIGIN_ALLOW_ALL=True

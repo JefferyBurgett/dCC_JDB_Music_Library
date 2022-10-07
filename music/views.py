@@ -33,3 +33,14 @@ def music_detail(request, pk):
         elif request.method == 'DELETE':
             music.delete()
             return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+@api_view(['PATCH'])
+def like_song(request, pk):
+        song = get_object_or_404(Music, pk=pk)
+        if request.method == 'PATCH':
+            new_likes = song.likes + 1  
+            serializer = MusicSerializer(song, {'likes':new_likes}, partial=True)
+            serializer.is_valid(raise_exception=True)
+            serializer.save()
+            return Response(serializer.data)
